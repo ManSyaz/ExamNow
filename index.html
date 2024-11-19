@@ -1,0 +1,498 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart ExamNow System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Updated styles for modern UI */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e6e3dd;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            margin-right: 250px;
+            min-height: calc(100vh - 400px);
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 0;
+            font-weight: 300;
+        }
+
+        /* Modern button styles */
+        .action-button {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: 2px solid #1a1a1a;
+            background-color: transparent;
+            color: #1a1a1a;
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #1a1a1a;
+            color: #e6e3dd;
+        }
+
+        /* Input styles */
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #1a1a1a;
+            border-radius: 50px;
+            background: transparent;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        /* Results container */
+        #exam-schedule {
+            background: #f5f2ed;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            right: -350px;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            background: #fff;
+            padding: 30px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .close-sidebar-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #666;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        /* Color picker group */
+        .color-picker-group {
+            background: #f5f2ed;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .color-input-group {
+            margin-bottom: 15px;
+        }
+
+        .color-input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .color-preview {
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+            margin-top: 5px;
+            border: 2px solid #797979;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-preview:hover {
+            border-color: #999;
+            cursor: pointer;
+        }
+
+        .generate-pdf-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .generate-pdf-btn:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+
+        .right-sidebar-buttons {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            z-index: 1000;
+        }
+
+        .sidebar-button {
+            background-color: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            color: #1a1a1a;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            width: 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-button i {
+            font-size: 1.2em;
+        }
+
+        /* Simplified Footer Styles */
+        .footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .footer-bottom p {
+            color: #e6e3dd;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        /* Make footer stick to bottom */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Responsive adjustment */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 15px 0;
+            }
+        }
+
+        /* Add scroll behavior */
+        @media screen and (max-height: 600px) {
+            .right-sidebar-buttons {
+                top: 20px;
+                transform: none;
+            }
+        }
+
+        /* Ensure button stays visible when sidebar is open */
+        .sidebar.active + .right-sidebar-buttons {
+            right: 320px; /* Adjust based on sidebar width */
+        }
+
+        /* Add smooth transition for button position */
+        .right-sidebar-buttons {
+            transition: right 0.3s ease;
+        }
+
+        /* Ensure button stays above other content */
+        .sidebar-button {
+            z-index: 1000;
+        }
+
+        /* Optional: Add hover animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .sidebar-button:hover {
+            animation: pulse 1s infinite;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Add these styles */
+        .header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 0;
+            font-weight: 300;
+        }
+
+        /* Container adjustment to prevent overlap */
+        .container {
+            margin-top: 80px;
+            margin-right: 250px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin-right: 20px;
+            }
+            
+            .right-sidebar-buttons {
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="header">
+                <h1>Smart ExamNow System</h1>
+                <p class="subtitle">Your comprehensive exam scheduling solution</p>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="program-code" placeholder="Enter Program Code" required>
+            </div>
+
+            <div class="input-group">
+                <select id="semester" required>
+                    <option value="" disabled selected>Select Semester</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                </select>
+            </div>
+
+            <button class="action-button" onclick="getExamSchedule()">
+                Generate Schedule
+                <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div id="exam-schedule">
+                <!-- Schedule will be displayed here -->
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2024 Smart ExamNow System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add these buttons on the right side -->
+    <div class="right-sidebar-buttons">
+        <button class="sidebar-button" onclick="toggleSidebar('customizeSidebar')">
+            Generate Timetable
+            <i class="fas fa-calendar-alt"></i>
+        </button>
+    </div>
+
+    <!-- Add this sidebar for customization -->
+    <div class="sidebar" id="customizeSidebar">
+        <div class="sidebar-header">
+            <h2>Customize Timetable</h2>
+            <button class="close-sidebar-btn" onclick="toggleSidebar('customizeSidebar')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="color-picker-group">
+            <div class="color-input-group">
+                <label for="header-color">Header Color</label>
+                <input type="color" id="header-color" value="#1a1a1a">
+                <div class="color-preview" id="header-preview"></div>
+            </div>
+
+            <div class="color-input-group">
+                <label for="cell-color">Row Color</label>
+                <input type="color" id="cell-color" value="#f5f2ed">
+                <div class="color-preview" id="cell-preview"></div>
+            </div>
+
+            <div class="color-input-group">
+                <label for="text-color">Text Color</label>
+                <input type="color" id="text-color" value="#1a1a1a">
+                <div class="color-preview" id="text-preview"></div>
+            </div>
+        </div>
+
+        <button class="generate-pdf-btn" onclick="generatePDF()">
+            <i class="fas fa-file-pdf"></i>
+            Generate PDF
+        </button>
+    </div>
+
+    <!-- Importing jsPDF library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="exam_schedule.js"></script>
+    <script>
+        // Color preview functionality
+        function updateColorPreview(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+            preview.style.backgroundColor = input.value;
+        }
+
+        // Add event listeners for color inputs
+        document.getElementById('header-color').addEventListener('input', () => 
+            updateColorPreview('header-color', 'header-preview'));
+        document.getElementById('cell-color').addEventListener('input', () => 
+            updateColorPreview('cell-color', 'cell-preview'));
+        document.getElementById('text-color').addEventListener('input', () => 
+            updateColorPreview('text-color', 'text-preview'));
+
+        // Initialize color previews
+        window.onload = function() {
+            updateColorPreview('header-color', 'header-preview');
+            updateColorPreview('cell-color', 'cell-preview');
+            updateColorPreview('text-color', 'text-preview');
+        };
+
+        // Add this to your existing JavaScript
+        function toggleSidebar(sidebarId) {
+            const sidebar = document.getElementById(sidebarId);
+            const overlay = document.querySelector('.sidebar-overlay');
+            
+            // Close any open sidebars first
+            document.querySelectorAll('.sidebar.active').forEach(openSidebar => {
+                if (openSidebar.id !== sidebarId) {
+                    openSidebar.classList.remove('active');
+                }
+            });
+            
+            sidebar.classList.toggle('active');
+            
+            // Create and toggle overlay
+            if (!overlay) {
+                const newOverlay = document.createElement('div');
+                newOverlay.className = 'sidebar-overlay';
+                document.body.appendChild(newOverlay);
+                newOverlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    newOverlay.classList.remove('active');
+                });
+            }
+            
+            const currentOverlay = document.querySelector('.sidebar-overlay');
+            if (sidebar.classList.contains('active')) {
+                currentOverlay.classList.add('active');
+            } else {
+                currentOverlay.classList.remove('active');
+            }
+        }
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.sidebar-button')) {
+                document.querySelectorAll('.sidebar').forEach(sidebar => {
+                    sidebar.classList.remove('active');
+                });
+                const overlay = document.querySelector('.sidebar-overlay');
+                if (overlay) {
+                    overlay.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
