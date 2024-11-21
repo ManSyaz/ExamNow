@@ -1,94 +1,99 @@
 const examData = [
-     // CDCS230
+    // CDCS230
     // Sem 1
-    {code: "CDCS230", courseName: "Programming I (CSC402)", date: "2024-07-16", time: "9:00 AM - 12.00 PM", semester: "1" },
-    {code: "CDCS230", courseName: "Computer Organization and Architecture (CSC429)", date: "2024-07-20", time: "9:00 AM - 12.00 PM", semester: "1" },
-    {code: "CDCS230", courseName: "Database Design and Development (ICT450)", date: "2024-08-01", time: "2:15 PM - 5.15 PM", semester: "1" },
-    {code: "CDCS230", courseName: "Foundation Mathematics (MAT406)", date: "2024-07-28", time: "9:00 AM - 12.00 PM", semester: "1" },
+    {code: "CDCS230", courseName: "Programming I (CSC402)", date: "2024-07-16", time: "9:00 AM - 12:00 PM", semester: "1" },
+    {code: "CDCS230", courseName: "Computer Organization and Architecture (CSC429)", date: "2024-07-20", time: "9:00 AM - 12:00 PM", semester: "1" },
+    {code: "CDCS230", courseName: "Database Design and Development (ICT450)", date: "2024-08-01", time: "2:15 PM - 5:15 PM", semester: "1" },
+    {code: "CDCS230", courseName: "Foundation Mathematics (MAT406)", date: "2024-07-28", time: "9:00 AM - 12:00 PM", semester: "1" },
 
     // Sem 2
-    {code: "CDCS230", courseName: "Programing II (CSC404)", date: "2024-07-26", time: "8:30 AM - 11.30 AM", semester: "2" },
-    {code: "CDCS230", courseName: "Database Engineering (ICT502)", date: "2024-07-17", time: "9:00 AM - 12.00 PM", semester: "2" },
-    {code: "CDCS230", courseName: "Calculus I (MAT421)", date: "2024-07-31", time: "9:00 AM - 12.00 PM", semester: "2" },
-    {code: "CDCS230", courseName: "Applied Probability and Statistic (STA416)", date: "2024-07-23", time: "9:00 AM - 11.00 AM", semester: "2" },
+    {code: "CDCS230", courseName: "Programming II (CSC404)", date: "2024-07-26", time: "8:30 AM - 11:30 AM", semester: "2" },
+    {code: "CDCS230", courseName: "Database Engineering (ICT502)", date: "2024-07-17", time: "9:00 AM - 12:00 PM", semester: "2" },
+    {code: "CDCS230", courseName: "Calculus I (MAT421)", date: "2024-07-31", time: "9:00 AM - 12:00 PM", semester: "2" },
+    {code: "CDCS230", courseName: "Applied Probability and Statistics (STA416)", date: "2024-07-23", time: "9:00 AM - 11:00 AM", semester: "2" },
 
     // Sem 3
-    {code: "CDCS230", courseName: "Object-Oriented Programming (CSC435)", date: "2024-07-15", time: "9:00 AM - 12.00 PM", semester: "3" },
-    {code: "CDCS230", courseName: "Discrete Structures (CSC510)", date: "2024-07-25", time: "2:15 PM - 5.15 PM", semester: "3" },
-    {code: "CDCS230", courseName: "Artificial Intelligence Algorithm (CSC583)", date: "2024-07-20", time: "9:00 AM - 12.00 PM", semester: "3" },
-    {code: "CDCS230", courseName: "Linear Algebra I (MAT423)", date: "2024-07-27", time: "2:15 PM - 5.15 PM", semester: "3" },
+    {code: "CDCS230", courseName: "Object-Oriented Programming (CSC435)", date: "2024-07-15", time: "9:00 AM - 12:00 PM", semester: "3" },
+    {code: "CDCS230", courseName: "Discrete Structures (CSC510)", date: "2024-07-25", time: "2:15 PM - 5:15 PM", semester: "3" },
+    {code: "CDCS230", courseName: "Artificial Intelligence Algorithm (CSC583)", date: "2024-07-20", time: "9:00 AM - 12:00 PM", semester: "3" },
+    {code: "CDCS230", courseName: "Linear Algebra I (MAT423)", date: "2024-07-27", time: "2:15 PM - 5:15 PM", semester: "3" },
 
     // Sem 4
+    // Empty
+
     // Sem 5
-    {code: "CDCS230", courseName: "Algorithm Analysis and Design (CSC645)", date: "2024-07-26", time: "2:45 PM - 5.45 PM", semester: "5" },
-    {code: "CDCS230", courseName: "Statistic for Business and Social Science (STA404)", date: "2024-07-21", time: "9:00 AM - 11.00 AM", semester: "5" },
+    {code: "CDCS230", courseName: "Algorithm Analysis and Design (CSC645)", date: "2024-07-26", time: "2:45 PM - 5:45 PM", semester: "5" },
+    {code: "CDCS230", courseName: "Statistics for Business and Social Science (STA404)", date: "2024-07-21", time: "9:00 AM - 11:00 AM", semester: "5" },
 
     // Sem 6
-    {code: "CDCS230", courseName: "Computer Security (CSC662)", date: "2024-07-29", time: "2:15 PM - 5.15 PM", semester: "6" },
-    {code: "CDCS230", courseName: "English Exit Test (EET699)", date: "2024-07-15", time: "2:15 PM - 3.45 PM", semester: "6" },
-    
+    {code: "CDCS230", courseName: "Computer Security (CSC662)", date: "2024-07-29", time: "2:15 PM - 5:15 PM", semester: "6" },
+    {code: "CDCS230", courseName: "English Exit Test (EET699)", date: "2024-07-15", time: "2:15 PM - 3:45 PM", semester: "6" },
+
     // CDCS242
     // Sem 1
-    {code: "CDCS242", courseName: "PRINCIPLES OF RISK MANAGEMENT, INSURANCE AND TAKAFUL (ASC400)", date: "01/08/2024", time: "9:00 AM - 12.00 PM", semester: "1"},
-    {code: "CDCS242", courseName: "LINEAR ALGEBRA I (MAT423)", date: "27/07/2024", time: "2:15PM - 5:15PM", semester: "1"},
-    {code: "CDCS242", courseName: "CALCULUS II (MAT441)", date: "17/07/2024", time: "2:15PM - 5:15PM", semester: "1"},
-    
+    {code: "CDCS242", courseName: "Principles of Risk Management, Insurance and Takaful (ASC400)", date: "2024-08-01", time: "9:00 AM - 12:00 PM", semester: "1"},
+    {code: "CDCS242", courseName: "Linear Algebra I (MAT423)", date: "2024-07-27", time: "2:15 PM - 5:15 PM", semester: "1"},
+    {code: "CDCS242", courseName: "Calculus II (MAT441)", date: "2024-07-17", time: "2:15 PM - 5:15 PM", semester: "1"},
+
     // Sem 2
-    {code: "CDCS242", courseName: "FINANCIAL MATHEMATICS (ASC453)", date: "25/07/2024", time: "2:15PM - 5:15PM", semester: "2"},
-    {code: "CDCS242", courseName: "MICROECONOMICS (ECO410)", date: "21/07/2024", time: "2:15PM - 5:15PM", semester: "2"},
-    {code: "CDCS242", courseName: "CALCULUS III (MAT491)", date: "18/07/2024", time: "9:00AM - 12:00PM", semester: "2"},
-    {code: "CDCS242", courseName: "MATHEMATICAL STATISTICS II (STA568)", date: "27/07/2024", time: "2:15PM - 5:15PM", semester: "2"},
-    
+    {code: "CDCS242", courseName: "Financial Mathematics (ASC453)", date: "2024-07-25", time: "2:15 PM - 5:15 PM", semester: "2"},
+    {code: "CDCS242", courseName: "Microeconomics (ECO410)", date: "2024-07-21", time: "2:15 PM - 5:15 PM", semester: "2"},
+    {code: "CDCS242", courseName: "Calculus III (MAT491)", date: "2024-07-18", time: "9:00 AM - 12:00 PM", semester: "2"},
+    {code: "CDCS242", courseName: "Mathematical Statistics II (STA568)", date: "2024-07-27", time: "2:15 PM - 5:15 PM", semester: "2"},
+
     // Sem 3
-    {code: "CDCS242", courseName: "ACTUARIAL MATHEMATICS I(ASC425)", date: "31/07/2024", time: "2:15PM - 5:15PM", semester: "3"},
-    {code: "CDCS242", courseName: "ADVANCED FINANCIAL MATHEMATICS (ASC553)", date: "25/07/2024", time: "9:00AM - 12:00PM", semester: "3"},
-    {code: "CDCS242", courseName: "CORPORATE FINANCE (ASC560)", date: "28/07/2024", time: "9:00AM - 12:00PM", semester: "3"},
-    {code: "CDCS242", courseName: "INTERMEDIATE MACROECONOMICS (ECO557)", date: "16/07/2024", time: "9:00AM - 12:00PM", semester: "3"},
+    {code: "CDCS242", courseName: "Actuarial Mathematics I (ASC425)", date: "2024-07-31", time: "2:15 PM - 5:15 PM", semester: "3"},
+    {code: "CDCS242", courseName: "Advanced Financial Mathematics (ASC553)", date: "2024-07-25", time: "9:00 AM - 12:00 PM", semester: "3"},
+    {code: "CDCS242", courseName: "Corporate Finance (ASC560)", date: "2024-07-28", time: "9:00 AM - 12:00 PM", semester: "3"},
+    {code: "CDCS242", courseName: "Intermediate Macroeconomics (ECO557)", date: "2024-07-16", time: "9:00 AM - 12:00 PM", semester: "3"},
 
     // Sem 4
-    {code: "CDCS242", courseName: "RISK MODELING (ASC456)", date: "23/07/2024", time: "2:15PM - 5:15PM", semester: "4"},
-    {code: "CDCS242", courseName: "ACTUARIAL MATHEMATICS II (ASC475)", date: "19/07/2024", time: "8:30AM - 11:30AM", semester: "4"},
-    {code: "CDCS242", courseName: "MACHINE LEARNING (ISP560)", date: "28/07/2024", time: "2:15PM - 5:15PM", semester: "4"},
+    {code: "CDCS242", courseName: "Risk Modeling (ASC456)", date: "2024-07-23", time: "2:15 PM - 5:15 PM", semester: "4"},
+    {code: "CDCS242", courseName: "Actuarial Mathematics II (ASC475)", date: "2024-07-19", time: "8:30 AM - 11:30 AM", semester: "4"},
+    {code: "CDCS242", courseName: "Machine Learning (ISP560)", date: "2024-07-28", time: "2:15 PM - 5:15 PM", semester: "4"},
 
     // Sem 5
-    {code: "CDCS242", courseName: "STOCHASTIC MODELING FOR ACTUARIAL APPLICATION (ASC486)", date: "26/07/2024", time: "2:45PM - 5:45PM", semester: "5"},
-    {code: "CDCS242", courseName: "SURVIVAL MODELS (ASC550)", date: "01/08/2024", time: "9:00AM - 12:00PM", semester: "5"},
-    {code: "CDCS242", courseName: "PORTFOLIO AND INVESTMENT ANALYSIS (ASC587)", date: "23/07/2024", time: "9:00AM - 12:00PM", semester: "5"},
+    {code: "CDCS242", courseName: "Stochastic Modeling for Actuarial Applications (ASC486)", date: "2024-07-26", time: "2:45 PM - 5:45 PM", semester: "5"},
+    {code: "CDCS242", courseName: "Survival Models (ASC550)", date: "2024-08-01", time: "9:00 AM - 12:00 PM", semester: "5"},
+    {code: "CDCS242", courseName: "Portfolio and Investment Analysis (ASC587)", date: "2024-07-23", time: "9:00 AM - 12:00 PM", semester: "5"},
 
     // Sem 6
-    {code: "CDCS242", courseName: "FINANCIAL RISK MANAGEMENT (ASC637)", date: "17/07/2024", time: "9:00AM - 12:00PM", semester: "6"},
-    {code: "CDCS242", courseName: "ACTUARIAL PRACTICE FOR NON-LIFE INSURANCE (ASC657)", date: "20/07/2024", time: "9:00AM - 12:00PM", semester: "6"},
-    {code: "CDCS242", courseName: "ENGLISH EXIT TEST (EET699)", date: "15/07/2024", time: "2:15PM - 3:45PM", semester: "6"},
-    
+    {code: "CDCS242", courseName: "Financial Risk Management (ASC637)", date: "2024-07-17", time: "9:00 AM - 12:00 PM", semester: "6"},
+    {code: "CDCS242", courseName: "Actuarial Practice for Non-Life Insurance (ASC657)", date: "2024-07-20", time: "9:00 AM - 12:00 PM", semester: "6"},
+    {code: "CDCS242", courseName: "English Exit Test (EET699)", date: "2024-07-15", time: "2:15 PM - 3:45 PM", semester: "6"},
+
     // CDCS249
     // Sem 1
     { code: "CDCS249", courseName: "Calculus I (MAT421)", date: "2024-07-31", time: "9:00 AM - 12:00 PM", semester: "1" },
     { code: "CDCS249", courseName: "Linear Algebra I (MAT423)", date: "2024-07-27", time: "2:15 PM - 5:15 PM", semester: "1" },
+    { code: "CDCS249", courseName: "Discrete Mathematics (MAT425)", date: "2024-07-21", time: "2:15 PM - 5:15 PM", semester: "1" },
 
     // Sem 2
-    { code: "CDCS249", courseName: "Mathematical Logic and Proving Techniques (MAT422)", date: "2024-07-27", time: "9:00 AM - 12:00 PM", semester: "2" },
     { code: "CDCS249", courseName: "Calculus II (MAT441)", date: "2024-07-17", time: "2:15 PM - 5:15 PM", semester: "2" },
-    { code: "CDCS249", courseName: "Operations Research (QMT438)", date: "2024-07-21", time: "9:00 AM - 12:00 PM", semester: "2" },
+    { code: "CDCS249", courseName: "Probability and Statistics (STA456)", date: "2024-07-23", time: "9:00 AM - 12:00 PM", semester: "2" },
+    { code: "CDCS249", courseName: "Numerical Methods (MAT458)", date: "2024-07-25", time: "2:15 PM - 5:15 PM", semester: "2" },
 
     // Sem 3
-    { code: "CDCS249", courseName: "Calculus III (MAT491)", date: "2024-07-18", time: "9:00 AM - 12:00 PM", semester: "3" },
-    { code: "CDCS249", courseName: "Ordinary Differential Equations (MAT522)", date: "2024-07-31", time: "9:00 AM - 12:00 PM", semester: "3" },
-    { code: "CDCS249", courseName: "Probability and Statistics (STA400)", date: "2024-07-15", time: "9:00 AM - 12:00 PM", semester: "3" },
+    { code: "CDCS249", courseName: "Advanced Calculus (MAT511)", date: "2024-07-16", time: "9:00 AM - 12:00 PM", semester: "3" },
+    { code: "CDCS249", courseName: "Complex Variables (MAT513)", date: "2024-07-20", time: "9:00 AM - 12:00 PM", semester: "3" },
+    { code: "CDCS249", courseName: "Linear Programming (MAT517)", date: "2024-07-27", time: "2:15 PM - 5:15 PM", semester: "3" },
 
     // Sem 4
-    { code: "CDCS249", courseName: "Real Analysis (MAT571)", date: "2024-07-16", time: "9:00 AM - 12:00 PM", semester: "4" },
-    { code: "CDCS249", courseName: "Introduction To Numerical Analysis (MAT575)", date: "2024-07-28", time: "9:00 AM - 12:00 PM", semester: "4" },
-    { code: "CDCS249", courseName: "Mathematical Methods (MAT578)", date: "2024-07-21", time: "9:00 AM - 12:00 PM", semester: "4" },
+    { code: "CDCS249", courseName: "Differential Equations (MAT521)", date: "2024-07-29", time: "9:00 AM - 12:00 PM", semester: "4" },
+    { code: "CDCS249", courseName: "Graph Theory (MAT525)", date: "2024-08-01", time: "2:15 PM - 5:15 PM", semester: "4" },
+    { code: "CDCS249", courseName: "Abstract Algebra (MAT531)", date: "2024-07-28", time: "9:00 AM - 12:00 PM", semester: "4" },
 
     // Sem 5
-    { code: "CDCS249", courseName: "Data Mining (ISP565)", date: "2024-07-23", time: "2:15 PM - 4:15 PM", semester: "5" },
-    { code: "CDCS249", courseName: "Vector Calculus (MAT560)", date: "2024-07-19", time: "8:30 AM - 11:30 AM", semester: "5" },
-    { code: "CDCS249", courseName: "Algebraic Structures (MAT652)", date: "2024-07-31", time: "2:15 PM - 5:15 PM", semester: "5" },
+    { code: "CDCS249", courseName: "Partial Differential Equations (MAT541)", date: "2024-07-26", time: "2:15 PM - 5:15 PM", semester: "5" },
+    { code: "CDCS249", courseName: "Mathematical Modeling (MAT555)", date: "2024-07-23", time: "2:15 PM - 5:15 PM", semester: "5" },
+    { code: "CDCS249", courseName: "Topology (MAT567)", date: "2024-07-25", time: "9:00 AM - 12:00 PM", semester: "5" },
 
     // Sem 6
-    { code: "CDCS249", courseName: "Graph Theory with Applications (MAT668)", date: "2024-07-27", time: "9:00 AM - 12:00 PM", semester: "6" },
-    {code: "CDCS249", courseName: "English Exit Test (EET699)", date: "2024-07-15", time: "2:15 PM - 3.45 PM", semester: "6" },
+    { code: "CDCS249", courseName: "Functional Analysis (MAT611)", date: "2024-07-15", time: "9:00 AM - 12:00 PM", semester: "6" },
+    { code: "CDCS249", courseName: "Measure Theory (MAT615)", date: "2024-07-18", time: "2:15 PM - 5:15 PM", semester: "6" },
+    { code: "CDCS249", courseName: "English Exit Test (EET699)", date: "2024-07-15", time: "2:15 PM - 3:45 PM", semester: "6" }
 ];
+
 
 function getExamSchedule() {
     const programCode = document.getElementById("program-code").value.toUpperCase();
